@@ -1,0 +1,114 @@
+/* Some style basics */
+body {
+  margin: 0;
+}
+
+html {
+  box-sizing: border-box;
+  margin: 0;
+}
+
+*, *:before, *:after {
+  box-sizing: inherit;
+}
+
+* {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  color: white;
+}
+
+/* general styling */
+h1 {
+  font-size: 1.1rem;
+  font-weight: 600;
+  margin: 0px 0px 5px 0px;
+}
+
+h2 {
+  font-size: 1rem;
+  font-weight: 600;
+  margin: 0px 0px 5px 0px;
+}
+
+.text-light-bold {
+  font-weight: 600;
+}
+
+/* app */
+.app-container {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  padding: 5px;
+}
+
+/* main menu */
+.main-menu-container {
+  display: flex;
+  flex-direction: row;
+  background: seagreen;
+  border-radius: 5px;
+  margin-bottom: 5px;
+  padding: 8px;
+}
+
+/* member overview */
+.member-overview-container {
+  display: flex;
+  flex-direction: column;
+  background: darkcyan;
+  border-radius: 5px;
+  margin-bottom: 5px;
+  padding: 5px;
+}
+
+/* member overview item */
+.member-overview-item-container {
+  background: rgba(255, 255, 255, 0.7);
+  border-radius: 5px;
+  margin-bottom: 5px;
+  padding: 3px 5px;
+}
+
+.member-overview-item-container:last-child {
+  margin-bottom: 0;
+}
+
+.member-overview-item-container h2 {
+   color: black
+}
+
+.member-overview-item-container ul {
+   color: black;
+   padding: 0;
+   margin: 2px 0;
+}
+
+.member-overview-item-container ul li {
+   color: black;
+}
+
+/* member overview */
+.progress-list-overview-container {
+  display: flex;
+  flex-direction: column;
+  background: purple;
+  border-radius: 5px;
+  padding: 5px;
+}
+
+/* progress list overview item */
+.progress-list-overview-items-container {
+}
+
+.progress-list-overview-item-container {
+  background: rgba(255, 255, 255, 0.7);
+  border-radius: 5px;
+  color: black;
+  margin-bottom: 5px;
+  padding: 3px 5px;
+}
+
+.progress-list-overview-item-container:last-child {
+  margin-bottom: 0;
+}

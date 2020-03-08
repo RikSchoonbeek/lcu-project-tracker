@@ -19,8 +19,12 @@ class MemberOverview extends React.Component {
     }
 
     renderMemberList = () => {
-        const memberListItems = this.props.memberList.map((member, index) => (
-            <MemberOverviewItem member={member.user} key={index} />
+        const memberListItems = this.props.memberList.map(member => (
+            <MemberOverviewItem
+                member={member.user}
+                projectList={member.project_set}
+                key={member.id}
+            />
         ))
         return memberListItems
     }

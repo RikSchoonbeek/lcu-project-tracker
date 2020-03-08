@@ -26,7 +26,7 @@ class App extends React.Component {
   }
 
   getMemberList = () => {
-    axios.get("http://127.0.0.1:8000/member/")
+    axios.get("http://127.0.0.1:8000/member/?with_project_data=true")
       .then((response) => {
         // handle success
         console.log(response)

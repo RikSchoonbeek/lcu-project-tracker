@@ -30,7 +30,7 @@ class ProjectIdea(models.Model):
     skill_level = models.ForeignKey(
         SkillLevel, blank=True, null=True, on_delete=models.PROTECT
     )
-    recomended_languages = models.ManyToManyField(ProgrammingLanguage, blank=True)
+    recommended_languages = models.ManyToManyField(ProgrammingLanguage, blank=True)
     recommended_frameworks = models.ManyToManyField(Framework, blank=True)
 
     def __str__(self):

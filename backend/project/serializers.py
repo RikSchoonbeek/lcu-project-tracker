@@ -11,7 +11,7 @@ from general_models.serializers import (
 
 class ProjectIdeaListSerializer(serializers.ModelSerializer):
     recommended_frameworks = FrameworkListSerializer(many=True)
-    recomended_languages = ProgrammingLanguageListSerializer(many=True)
+    recommended_languages = ProgrammingLanguageListSerializer(many=True)
     skill_level = SkillLevelListSerializer()
 
     class Meta:
@@ -21,7 +21,7 @@ class ProjectIdeaListSerializer(serializers.ModelSerializer):
             "title",
             "description",
             "recommended_frameworks",
-            "recomended_languages",
+            "recommended_languages",
             "skill_level",
         ]
 

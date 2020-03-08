@@ -7,20 +7,41 @@ class ProjectIdeaOverviewItem extends React.Component {
         super(props);
     }
 
-    // renderRecommendedLanguages = () => {
-    //     debugger;
-    //     if (this.props.projectIdea.recommended_languages.length === 0) {
-    //         return null
-    //     }
+    renderRecommendedFrameworks = () => {
+        if (this.props.projectIdea.recommended_frameworks.length === 0) {
+            return <ul><li>No recommendations</li></ul>
+        }
 
-    //     return (
-    //         <ul>
-    //             {this.props.projectIdea.recommended_languages.map(
-    //                 (language, index) => (<li key={index}>{language.name}</li>)
-    //             )}
-    //         </ul>
-    //     )
-    // }
+        return (
+            <ul>
+                {this.props.projectIdea.recommended_frameworks.map(
+                    (framework, index) => (<li key={index}>{framework.name}</li>)
+                )}
+            </ul>
+        )
+    }
+
+    renderRecommendedLanguages = () => {
+        if (this.props.projectIdea.recommended_languages.length === 0) {
+            return <ul><li>No recommendations</li></ul>
+        }
+
+        return (
+            <ul>
+                {this.props.projectIdea.recommended_languages.map(
+                    (language, index) => (<li key={index}>{language.name}</li>)
+                )}
+            </ul>
+        )
+    }
+
+    renderSkillLevel = () => {
+        if (this.props.skill_level) {
+            return <ul><li>{this.props.skill_level.level}</li></ul>
+        } else {
+            return <ul><li>No recommendation</li></ul>
+        }
+    }
 
     render() {
         return <div className='project-idea-overview-item-container'>
@@ -29,8 +50,12 @@ class ProjectIdeaOverviewItem extends React.Component {
                 text={this.props.projectIdea.description}
                 title="Description:"
             />
-            <p>recommended languages:</p>
-            {/* {this.renderRecommendedLanguages()} */}
+            <p>Skill level:</p>
+            {this.renderSkillLevel()}
+            <p>Languages:</p>
+            {this.renderRecommendedLanguages()}
+            <p>Frameworks:</p>
+            {this.renderRecommendedFrameworks()}
         </div>
     }
 }

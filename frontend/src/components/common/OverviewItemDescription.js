@@ -14,7 +14,6 @@ class OverviewItemDescription extends React.Component {
 
     getDescriptionTextDivClassName = () => {
         const baseClassName = "overview-item-description-text-container"
-        debugger;
         if (this.state.isOpen) {
             return baseClassName + " display-block"
         } else {

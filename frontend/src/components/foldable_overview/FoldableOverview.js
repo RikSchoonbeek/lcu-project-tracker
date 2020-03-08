@@ -12,7 +12,7 @@ class FoldableOverview extends React.Component {
     getChildrenContainerClassName = () => {
         const classNameBase = 'foldable-overview-children-container'
         if (this.props.isOpen) {
-            return classNameBase + ' width-500px'
+            return classNameBase + ' min-width-400px width-40vw'
         } else {
             return classNameBase + ' display-none'
         }

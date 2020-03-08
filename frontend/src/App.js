@@ -3,6 +3,7 @@ import MainMenu from './components/main_menu/MainMenu';
 import MemberOverview from './components/member_overview/MemberOverview';
 import ProjectIdeaOverview from './components/project_idea_overview/ProjectIdeaOverview'
 import axios from 'axios'
+import './App.css'
 
 class App extends React.Component {
   constructor(props) {
@@ -95,15 +96,17 @@ class App extends React.Component {
     return (
       <div className="app-container">
         <MainMenu />
-        <MemberOverview
-          memberList={this.state.memberOverview.memberList}
-          isOpen={this.state.memberOverview.isOpen}
-        />
-        <ProjectIdeaOverview
-          projectIdeas={this.state.projectIdeaOverview.projectIdeas}
-          isOpen={this.state.projectIdeaOverview.isOpen}
-          toggleFoldableOverview={this.toggleFoldableOverview}
-        />
+        <div className="app-overview-container">
+          <MemberOverview
+            memberList={this.state.memberOverview.memberList}
+            isOpen={this.state.memberOverview.isOpen}
+          />
+          <ProjectIdeaOverview
+            projectIdeas={this.state.projectIdeaOverview.projectIdeas}
+            isOpen={this.state.projectIdeaOverview.isOpen}
+            toggleFoldableOverview={this.toggleFoldableOverview}
+          />
+        </div>
       </div>
     );
   }

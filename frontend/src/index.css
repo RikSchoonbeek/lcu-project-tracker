@@ -34,24 +34,6 @@ h2 {
   font-weight: 600;
 }
 
-/* app */
-.app-container {
-  display: flex;
-  flex-direction: column;
-  height: 100vh;
-  padding: 5px;
-}
-
-/* main menu */
-.main-menu-container {
-  display: flex;
-  flex-direction: row;
-  background: seagreen;
-  border-radius: 5px;
-  margin-bottom: 5px;
-  padding: 8px;
-}
-
 /* member overview */
 .member-overview-container {
   display: flex;

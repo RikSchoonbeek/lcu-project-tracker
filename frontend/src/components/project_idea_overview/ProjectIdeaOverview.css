@@ -1,0 +1,21 @@
+/* project idea overview */
+
+/* .project-idea-overview-container {                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        
+    display: flex;
+    flex-direction: column;
+    background: purple;
+    border-radius: 5px;
+    padding: 5px;
+  } */
+  
+.project-idea-overview-item-container {
+background: purple;
+border-radius: 5px;
+color: black; 
+margin-bottom: 5px;
+padding: 3px 5px;
+}
+  
+.project-idea-overview-item-container h2 {
+color: black; 
+}

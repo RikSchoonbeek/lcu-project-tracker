@@ -1,0 +1,4 @@
+{
+    "python.pythonPath": "/home/rik/.envs/lcu_tracker/bin/python",
+    "python.formatting.provider": "black"
+}

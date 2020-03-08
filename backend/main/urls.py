@@ -6,7 +6,7 @@ urlpatterns = [
     path("admin/", admin.site.urls),
     path("api/", include("authentication.urls")),
     path("member/", include("member.urls")),
-    path("member_progress/", include("member_progress.urls")),
+    path("project/", include("project.urls")),
     # path(
     #     "api/token/", jwt_views.TokenObtainPairView.as_view(), name="token_obtain_pair"
     # ),

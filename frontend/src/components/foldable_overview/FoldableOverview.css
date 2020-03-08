@@ -1,0 +1,38 @@
+.foldable-overview-container {
+    background: purple;
+    border-radius: 5px;
+    display: flex;
+    flex-direction: row;
+    height: 100%;
+    padding: 5px;
+    width: auto;
+}
+
+.foldable-overview-children-container {
+    background: rgba(255, 255, 255, 0.8);
+    border-radius: 5px;
+    height: 100%;
+    padding: 5px;
+}
+
+.foldable-overview-title-bar-container {
+    border: 1px solid black;
+    width: 30px;
+}
+
+.foldable-overview-title-bar-container h1 {
+    writing-mode: tb-rl;
+    transform: rotate(-180deg);
+}
+
+.display-none {
+    display: none;
+}
+
+.width-500px {
+    width: 500px;
+}
+
+.width-auto {
+    width: auto;
+}

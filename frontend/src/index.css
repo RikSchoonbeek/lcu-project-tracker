@@ -88,7 +88,9 @@ h2 {
    color: black;
 }
 
-/* member overview */
+
+
+/* progress list overview */
 .progress-list-overview-container {
   display: flex;
   flex-direction: column;
@@ -104,7 +106,7 @@ h2 {
 .progress-list-overview-item-container {
   background: rgba(255, 255, 255, 0.7);
   border-radius: 5px;
-  color: black;
+  color: black; 
   margin-bottom: 5px;
   padding: 3px 5px;
 }

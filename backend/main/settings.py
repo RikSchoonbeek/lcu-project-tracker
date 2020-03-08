@@ -41,8 +41,11 @@ INSTALLED_APPS = [
     "rest_framework",
     "corsheaders",
     "authentication",
+    "common",
+    "general_models",
     "member",
     "member_progress",
+    "project",
 ]
 
 MIDDLEWARE = [

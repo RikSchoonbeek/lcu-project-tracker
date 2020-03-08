@@ -1,6 +1,8 @@
 import React from 'react'
 import FoldableOverview from '../foldable_overview/FoldableOverview'
 import MemberOverviewItem from './MemberOverviewItem';
+import './MemberOverview.css'
+
 
 class MemberOverview extends React.Component {
     // Responsible for displaying the members.

@@ -26,15 +26,3 @@
     writing-mode: tb-rl;
     transform: rotate(-180deg);
 }
-
-.display-none {
-    display: none;
-}
-
-.width-500px {
-    width: 500px;
-}
-
-.width-auto {
-    width: auto;
-}

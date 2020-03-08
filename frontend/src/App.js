@@ -11,7 +11,7 @@ class App extends React.Component {
     this.state = {
       memberOverview: {
         memberList: [],
-        isOpen: true,
+        isOpen: false,
       },
       projectIdeaOverview: {
         projectIdeas: [],

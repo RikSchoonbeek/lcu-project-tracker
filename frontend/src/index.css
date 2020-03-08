@@ -34,42 +34,24 @@ h2 {
   font-weight: 600;
 }
 
-/* member overview */
-.member-overview-container {
-  display: flex;
-  flex-direction: column;
-  background: darkcyan;
-  border-radius: 5px;
-  margin-bottom: 5px;
-  padding: 5px;
+
+/* styling related to changing widths + toggling component visibility */
+
+.display-block {
+  display: block;
 }
 
-/* member overview item */
-.member-overview-item-container {
-  background: rgba(255, 255, 255, 0.7);
-  border-radius: 5px;
-  margin-bottom: 5px;
-  padding: 3px 5px;
+.display-none {
+  display: none;
 }
 
-.member-overview-item-container:last-child {
-  margin-bottom: 0;
+.width-500px {
+  width: 500px;
 }
 
-.member-overview-item-container h2 {
-   color: black
+.width-auto {
+  width: auto;
 }
-
-.member-overview-item-container ul {
-   color: black;
-   padding: 0;
-   margin: 2px 0;
-}
-
-.member-overview-item-container ul li {
-   color: black;
-}
-
 
 
 /* progress list overview */

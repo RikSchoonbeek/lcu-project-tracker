@@ -1,5 +1,5 @@
 import React from 'react'
-
+import OverviewItemDescription from '../common/OverviewItemDescription'
 
 class ProjectIdeaOverviewItem extends React.Component {
     // Responsible for displaying the Project Ideas.
@@ -25,7 +25,10 @@ class ProjectIdeaOverviewItem extends React.Component {
     render() {
         return <div className='project-idea-overview-item-container'>
             <h2>{this.props.projectIdea.title}</h2>
-            <p>description:</p>
+            <OverviewItemDescription
+                text={this.props.projectIdea.description}
+                title="Description:"
+            />
             <p>recommended languages:</p>
             {/* {this.renderRecommendedLanguages()} */}
         </div>

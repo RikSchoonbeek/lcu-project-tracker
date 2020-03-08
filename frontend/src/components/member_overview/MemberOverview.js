@@ -1,4 +1,5 @@
 import React from 'react'
+import FoldableOverview from '../foldable_overview/FoldableOverview'
 import MemberOverviewItem from './MemberOverviewItem';
 
 class MemberOverview extends React.Component {
@@ -24,10 +25,16 @@ class MemberOverview extends React.Component {
 
     render() {
         const memberList = this.renderMemberList()
-        return <div className='member-overview-container'>
-            <h1>Members</h1>
-            <div className='member-overview-items-container'>{memberList}</div>
-        </div>
+        return (
+            <FoldableOverview
+                title="Members"
+                overviewName="member"
+                isOpen={this.props.isOpen}
+                toggleFoldableOverview={this.props.toggleFoldableOverview}
+            >
+                {memberList}
+            </FoldableOverview>
+        )
     }
 }
 

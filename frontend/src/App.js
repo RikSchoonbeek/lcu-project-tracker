@@ -100,6 +100,7 @@ class App extends React.Component {
           <MemberOverview
             memberList={this.state.memberOverview.memberList}
             isOpen={this.state.memberOverview.isOpen}
+            toggleFoldableOverview={this.toggleFoldableOverview}
           />
           <ProjectIdeaOverview
             projectIdeas={this.state.projectIdeaOverview.projectIdeas}

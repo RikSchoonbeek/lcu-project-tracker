@@ -1,7 +1,11 @@
-import React from 'react';
-import MainMenu from './components/main_menu/MainMenu';
-import MemberOverview from './components/member_overview/MemberOverview';
-import ProjectIdeaOverview from './components/project_idea_overview/ProjectIdeaOverview'
+import React from 'react'
+import { Switch, Route } from "react-router-dom"
+import Board from './components/board/Board'
+import Hello from './components/hello'
+import Login from "./components/user_authentication/Login"
+import Signup from "./components/user_authentication/Signup"
+import MainMenu from './components/main_menu/MainMenu'
+import UserAuthentication from './components/user_authentication/UserAuthentication'
 import axios from 'axios'
 import './App.css'
 
@@ -17,6 +21,7 @@ class App extends React.Component {
         projectIdeas: [],
         isOpen: true,
       },
+      member: null
     }
   }
 
@@ -97,16 +102,24 @@ class App extends React.Component {
       <div className="app-container">
         <MainMenu />
         <div className="app-overview-container">
-          <MemberOverview
-            memberList={this.state.memberOverview.memberList}
-            isOpen={this.state.memberOverview.isOpen}
-            toggleFoldableOverview={this.toggleFoldableOverview}
-          />
-          <ProjectIdeaOverview
-            projectIdeas={this.state.projectIdeaOverview.projectIdeas}
-            isOpen={this.state.projectIdeaOverview.isOpen}
-            toggleFoldableOverview={this.toggleFoldableOverview}
-          />
+          <UserAuthentication />
+
+          <Switch>
+            <Route exact path={"/login/"} component={Login} />
+            <Route exact path={"/signup/"} component={Signup} />
+            <Route exact path={"/hello/"} component={Hello} />
+            <Route
+              exact
+              path={"/"}
+              render={(props) => (
+                <Board
+                  memberOverview={this.state.memberOverview}
+                  projectIdeaOverview={this.state.projectIdeaOverview}
+                  toggleFoldableOverview={this.toggleFoldableOverview}
+                />
+              )}
+            />
+          </Switch>
         </div>
       </div>
     );

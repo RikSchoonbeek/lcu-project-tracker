@@ -1,0 +1,39 @@
+.auth-page-container {
+    align-items: center;
+    border-radius: 5px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 100%;
+    width: 100%;
+}
+
+.auth-form {
+    display: flex;
+    flex-direction: column;
+}
+
+.auth-form input {
+    color: black;
+}
+
+.login-page-container {
+    background: red;
+}
+
+.login-page-container h2 {
+    color: black;
+}
+
+.signup-page-container {
+    background: blue;
+}
+
+.signup-page-container h2 {
+    color: black;
+}
+
+.main-menu-nav-link {
+    padding: 0 5px;
+    text-decoration: none;
+}

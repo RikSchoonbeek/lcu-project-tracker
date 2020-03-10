@@ -1,6 +1,32 @@
 from rest_framework import serializers
+from rest_framework_simplejwt.serializers import TokenObtainPairSerializer
 
 from .models import CustomUser
+
+
+class CustomUserSerializer(serializers.ModelSerializer):
+    """
+    This serializer is for CREATING USERS ONLY, not for sending their data
+    to the frontend, since this serializer includes the password field.
+    
+    Got this from:
+    https://hackernoon.com/110percent-complete-jwt-authentication-with-django-and-react-2020-iejq34ta
+    """
+
+    class Meta:
+        model = CustomUser
+        fields = ("email", "username", "password")
+        extra_kwargs = {"password": {"write_only": True}}
+
+    def create(self, validated_data):
+        password = validated_data.pop("password", None)
+        instance = self.Meta.model(
+            **validated_data
+        )  # as long as the fields are the same, we can just use this
+        if password is not None:
+            instance.set_password(password)
+        instance.save()
+        return instance
 
 
 class CustomUserListSerializer(serializers.ModelSerializer):

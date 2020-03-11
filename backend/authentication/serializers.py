@@ -2,9 +2,12 @@ from rest_framework import serializers
 from rest_framework_simplejwt.serializers import TokenObtainPairSerializer
 
 from .models import CustomUser
+from member.models import Member
 
 
-class CustomUserSerializer(serializers.ModelSerializer):
+class CustomUserCreateSerializer(serializers.ModelSerializer):
+    # TODO (riks) create a test to make sure this serializer can't return
+    # password data.
     """
     This serializer is for CREATING USERS ONLY, not for sending their data
     to the frontend, since this serializer includes the password field.
@@ -29,6 +32,16 @@ class CustomUserSerializer(serializers.ModelSerializer):
         return instance
 
 
+class CustomUserDetailSerializer(serializers.ModelSerializer):
+    """
+    Serializer that returns the information to be shown in detail views.
+    """
+
+    class Meta:
+        model = CustomUser
+        fields = ["id", "username"]
+
+
 class CustomUserListSerializer(serializers.ModelSerializer):
     """
     Serializer that only returns the information to be shown in list views. So,
@@ -37,5 +50,4 @@ class CustomUserListSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = CustomUser
-        fields = ["username"]
-
+        fields = ["id", "username"]

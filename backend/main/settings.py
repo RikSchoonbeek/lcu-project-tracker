@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     "django.contrib.staticfiles",
     "rest_framework",
     "corsheaders",
+    "djoser",
     "authentication",
     "common",
     "general_models",
@@ -154,3 +155,26 @@ SIMPLE_JWT = {
     "AUTH_TOKEN_CLASSES": ("rest_framework_simplejwt.tokens.AccessToken",),
     "TOKEN_TYPE_CLAIM": "token_type",
 }
+
+# Djoser
+# see for more options & explanations:
+# https://djoser.readthedocs.io/en/latest/settings.html
+DJOSER = {
+    "ACTIVATION_URL": "#/activate/{uid}/{token}",
+    "PASSWORD_RESET_CONFIRM_URL": "#/password/reset/confirm/{uid}/{token}",
+    "PERMISSIONS": {"user_create": ["rest_framework.permissions.AllowAny"],},
+    "SEND_ACTIVATION_EMAIL": True,
+    "SERIALIZERS": {},
+    "USER_CREATE_PASSWORD_RETYPE": True,
+    "USERNAME_RESET_CONFIRM_URL": "#/username/reset/confirm/{uid}/{token}",
+    # SET_PASSWORD_RETYPE,
+    # PASSWORD_RESET_CONFIRM_RETYPE,
+}
+
+# Email
+EMAIL_HOST = "imap.gmail.com"
+EMAIL_PORT = 587
+EMAIL_HOST_USER = os.getenv("EMAIL_HOST_USER")
+EMAIL_HOST_PASSWORD = os.getenv("EMAIL_HOST_PASSWORD")
+EMAIL_USE_SSL = False
+EMAIL_USE_TLS = True

@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import axios from 'axios'
+import axiosInstance from '../axiosApi'
 
 class Hello extends Component {
     constructor(props) {
@@ -17,29 +17,19 @@ class Hello extends Component {
         console.log("messageData1: ", JSON.stringify(messageData1, null, 4));
     }
 
-    getMessage = () => {
-        var authOptions = {
-            method: 'GET',
-            url: 'http://127.0.0.1:8000/auth/hello/',
-            headers: {
-                'Authorization': "JWT " + localStorage.getItem('access_token'),
-                'Content-Type': 'application/json',
-                'accept': 'application/json'
-            }
-        };
-
-        axios(authOptions)
-            .then(response => {
-                console.log("this", this)
-                const message = response.data.hello;
-                this.setState({
-                    message: message,
-                });
-            })
-            .catch(function (error) {
-                console.log("Error: ", JSON.stringify(error, null, 4));
-                throw error;
-            })
+    getMessage = async () => {
+        try {
+            const response = await axiosInstance.get('/auth/hello/')
+            const message = response.data.hello;
+            alert(message)
+            this.setState({
+                message: message,
+            });
+            return message;
+        } catch (error) {
+            console.log("error in Hello.getMessage()", error)
+            throw error;
+        }
     }
 
     render() {

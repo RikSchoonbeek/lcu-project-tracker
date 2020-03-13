@@ -14,30 +14,22 @@ class Login extends Component {
         this.setState({ [event.target.name]: event.target.value });
     }
 
-    handleSubmit = (event) => {
+    handleSubmit = async (event) => {
         event.preventDefault();
-        var authOptions = {
-            method: 'POST',
-            url: 'http://127.0.0.1:8000/auth/token/obtain/',
-            data: {
+
+        try {
+            const response = await axiosInstance.post('/auth/token/obtain/', {
                 username: this.state.username,
                 password: this.state.password
-            },
-            headers: {
-                'Authorization': "JWT " + localStorage.getItem('access_token'),
-                'Content-Type': 'application/json',
-                'accept': 'application/json'
-            }
-        };
-
-        axios(authOptions)
-            .then(function (response) {
-                localStorage.setItem('access_token', response.data.access);
-                localStorage.setItem('refresh_token', response.data.refresh);
-            })
-            .catch(function (error) {
-                console.log(error);
-            })
+            });
+            axiosInstance.defaults.headers['Authorization'] = "JWT " + response.data.access;
+            localStorage.setItem('access_token', response.data.access);
+            localStorage.setItem('refresh_token', response.data.refresh);
+            // return response.data;
+        } catch (error) {
+            console.log("error in Login.handleSubmit()", error)
+            throw error;
+        }
     }
 
     render() {

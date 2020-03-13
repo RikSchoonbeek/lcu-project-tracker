@@ -1,13 +1,14 @@
 import React, { Component } from "react";
-
+import { axiosInstanceNoAuth } from '../../axiosApi'
 
 class Signup extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            username: "",
-            password: "",
-            email: ""
+            username: "haha",
+            password: "aaaaaa1!",
+            re_password: "aaaaaa1!",
+            email: "rik.progtest@gmail.com"
         };
     }
 
@@ -15,9 +16,20 @@ class Signup extends Component {
         this.setState({ [event.target.name]: event.target.value });
     }
 
-    handleSubmit = (event) => {
-        alert('A username and password was submitted: ' + this.state.username + " " + this.state.password + " " + this.state.email);
+    handleSubmit = async (event) => {
+        // TODO (riks) this should create a Member (and a user),
         event.preventDefault();
+        try {
+            const response = await axiosInstanceNoAuth.post('/djoser_auth/users/', {
+                username: this.state.username,
+                email: this.state.email,
+                password: this.state.password,
+                re_password: this.state.re_password
+            });
+            return response;
+        } catch (error) {
+            console.log(error.stack);
+        }
     }
 
     render() {
@@ -49,6 +61,15 @@ class Signup extends Component {
                             name="password"
                             type="password"
                             value={this.state.password}
+                            onChange={this.handleChange}
+                        />
+                    </label>
+                    <label>
+                        Password confirm:
+                        <input
+                            name="re_password"
+                            type="password"
+                            value={this.state.re_password}
                             onChange={this.handleChange}
                         />
                     </label>

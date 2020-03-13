@@ -2,6 +2,7 @@ import React from 'react'
 import { Switch, Route } from "react-router-dom"
 import Board from './components/board/Board'
 import Hello from './components/hello'
+import Activate from "./components/user_authentication/Activate"
 import Login from "./components/user_authentication/Login"
 import Signup from "./components/user_authentication/Signup"
 import MainMenu from './components/main_menu/MainMenu'
@@ -21,13 +22,22 @@ class App extends React.Component {
         projectIdeas: [],
         isOpen: true,
       },
-      member: null
+      member: {
+        id: null,
+        tokenStored: false,
+        username: null,
+      }
     }
   }
 
   componentDidMount() {
     this.getMemberList()
     this.getProjectIdeas()
+  }
+
+  checkLocalStorageForAuthToken = () => {
+    // This method is responsible for checking if a refresh token is stored in
+    // local storage.
   }
 
   getMemberList = () => {
@@ -107,6 +117,7 @@ class App extends React.Component {
           <Switch>
             <Route exact path={"/login/"} component={Login} />
             <Route exact path={"/signup/"} component={Signup} />
+            <Route exact path={"/activate/:uid/:token"} component={Activate} />
             <Route exact path={"/hello/"} component={Hello} />
             <Route
               exact

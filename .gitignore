@@ -73,3 +73,4 @@ spritesmith.scss
 tmp_email/
 
 .vscode/
+local_settings.py

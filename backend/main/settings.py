@@ -160,13 +160,16 @@ SIMPLE_JWT = {
 # see for more options & explanations:
 # https://djoser.readthedocs.io/en/latest/settings.html
 DJOSER = {
-    "ACTIVATION_URL": "#/activate/{uid}/{token}",
-    "PASSWORD_RESET_CONFIRM_URL": "#/password/reset/confirm/{uid}/{token}",
-    "PERMISSIONS": {"user_create": ["rest_framework.permissions.AllowAny"],},
+    "ACTIVATION_URL": "auth/request_activate/{uid}/{token}",
     "SEND_ACTIVATION_EMAIL": True,
     "SERIALIZERS": {},
     "USER_CREATE_PASSWORD_RETYPE": True,
-    "USERNAME_RESET_CONFIRM_URL": "#/username/reset/confirm/{uid}/{token}",
+    # "PERMISSIONS": {
+    #     "activation": ["rest_framework.permissions.AllowAny"],
+    #     "user_create": ["rest_framework.permissions.AllowAny"],
+    # },
+    # "USERNAME_RESET_CONFIRM_URL": "#/username/reset/confirm/{uid}/{token}",
+    # "PASSWORD_RESET_CONFIRM_URL": "#/password/reset/confirm/{uid}/{token}",
     # SET_PASSWORD_RETYPE,
     # PASSWORD_RESET_CONFIRM_RETYPE,
 }
